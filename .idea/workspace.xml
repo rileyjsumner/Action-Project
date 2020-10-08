@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2186b68-c234-410d-ade3-058101a9e837" name="Default Changelist" comment="" />
+    <list default="true" id="d2186b68-c234-410d-ade3-058101a9e837" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/keys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ibcrVZp6fMaMDwe0fjnI43y0Mi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,7 +54,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602179931465</updated>
-      <workItem from="1602179932672" duration="1194000" />
+      <workItem from="1602179932672" duration="1656000" />
+      <workItem from="1602191175918" duration="2059000" />
     </task>
     <servers />
   </component>
@@ -48,5 +67,9 @@
       <screen x="-3000" y="-801" width="1080" height="1897" />
     </state>
     <state x="-2795" y="-67" key="EditFileWatcherDialog/0.23.1440.837/-3000.-801.1080.1897/-1920.-342.1920.1057@-3000.-801.1080.1897" timestamp="1602180020763" />
+    <state x="-2795" y="-356" width="670" height="676" key="search.everywhere.popup" timestamp="1602193336500">
+      <screen x="-3000" y="-801" width="1080" height="1897" />
+    </state>
+    <state x="-2795" y="-356" width="670" height="676" key="search.everywhere.popup/0.23.1440.838/-3000.-801.1080.1897/-1920.-342.1920.1057@-3000.-801.1080.1897" timestamp="1602193336500" />
   </component>
 </project>
