@@ -25,6 +25,22 @@ router.get('/candidate-industry', function(req, res) {
   })
 });
 
+router.get('/get-legislators', function(req, res) {
+  https.get('https://www.opensecrets.org/api/?method=getLegislators&id=WI&output=json&apikey='+openSecretsKey, (resp) => {
+    let data = '';
+
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    resp.on('end', () => {
+      console.log(data);
+      res.send(data);
+    });
+
+  })
+});
+
 router.get('/government', function(req, res) {
   https.get('https://api.govinfo.gov/collections/BILLS/2018-01-01T00:00:00Z?offset=0&pageSize=25&api_key='+governmentKey, (resp) => {
     let data = '';
