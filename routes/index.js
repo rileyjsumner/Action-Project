@@ -26,7 +26,7 @@ router.get('/candidate-industry', function(req, res) {
 });
 
 router.get('/government', function(req, res) {
-  https.get('https://api.govinfo.gov/collections/BILLS/2018-01-01T00:00:00Z?offset=0&pageSize=5&api_key='+governmentKey, (resp) => {
+  https.get('https://api.govinfo.gov/collections/BILLS/2018-01-01T00:00:00Z?offset=0&pageSize=25&api_key='+governmentKey, (resp) => {
     let data = '';
 
     resp.on('data', (chunk) => {
@@ -36,7 +36,7 @@ router.get('/government', function(req, res) {
     resp.on('end', () => {
       let json = JSON.parse(data);
       console.log(json);
-      https.get(json.packages[2].packageLink+"?api_key="+governmentKey, (resp) => {
+      https.get(json.packages[7].packageLink+"?api_key="+governmentKey, (resp) => {
         let package = '';
         resp.on('data', (chunk) => {
           package += chunk;
