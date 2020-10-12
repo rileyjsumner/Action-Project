@@ -3,16 +3,16 @@ const router = express.Router();
 const https = require('https');
 const openSecretsKey = '9d59028159f0f23122cb482707c8edb2';
 const governmentKey = 'kYHioTis97xkox7VGjYEQw4IpWLsC8nRZigF0Ae4';
-
+const states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"];
+const openSecretsUrl = 'https://www.opensecrets.org/api/?output=json&apikey='+openSecretsKey;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/candidate-industry', function(req, res) {
-  https.get('https://www.opensecrets.org/api/?method=candIndByInd&cid=N00007360&cycle=2020&ind=K02&output=json&apikey='+openSecretsKey, (resp) => {
+router.get('/get-industries/:cid', (req, res) => {
+  https.get(openSecretsUrl+'&method=candIndustry&cid='+req.params.cid+'&cycle=2020', (resp) => {
     let data = '';
-
     resp.on('data', (chunk) => {
       data += chunk;
     });
@@ -20,13 +20,12 @@ router.get('/candidate-industry', function(req, res) {
     resp.on('end', () => {
       console.log(data);
       res.send(data);
-    });
-
+    })
   })
 });
 
-router.get('/get-legislators', function(req, res) {
-  https.get('https://www.opensecrets.org/api/?method=getLegislators&id=WI&output=json&apikey='+openSecretsKey, (resp) => {
+router.get('/get-legislators/:state', (req, res) => {
+  https.get(openSecretsUrl+'&method=getLegislators&id='+req.params.state, (resp) => {
     let data = '';
 
     resp.on('data', (chunk) => {
@@ -34,7 +33,6 @@ router.get('/get-legislators', function(req, res) {
     });
 
     resp.on('end', () => {
-      console.log(data);
       res.send(data);
     });
 
@@ -64,5 +62,7 @@ router.get('/government', function(req, res) {
     })
   })
 });
+
+// Get candidate by id
 
 module.exports = router;
