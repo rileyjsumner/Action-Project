@@ -63,6 +63,8 @@ router.get('/government', function(req, res) {
   })
 });
 
+// router.get('/packages/')
+
 // Get candidate by id
 router.get('/sector/:cid', (req, res) => {
   https.get(openSecretsUrl+'&method=candSector&cid='+req.params.cid+'&cycle=2020', (resp) => {
@@ -72,8 +74,16 @@ router.get('/sector/:cid', (req, res) => {
     });
 
     resp.on('end', () => {
-
-      res.send(data);
+      let sectors = JSON.parse(data).response.sectors.sector;
+      let sectorData = [];
+      for(let i = 0; i < sectors.length; i++) {
+        sectorData.push({
+          name: sectors[i]['@attributes'].sector_name,
+          id: sectors[i]['@attributes'].sectorid,
+          total: parseInt(sectors[i]['@attributes'].total)
+        })
+      }
+      res.send(sectorData);
     })
   })
 })
