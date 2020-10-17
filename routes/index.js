@@ -18,8 +18,8 @@ router.get('/get-industries/:cid', (req, res) => {
     });
 
     resp.on('end', () => {
-      console.log(data);
-      res.send(data);
+      let industries = JSON.parse(data).response.industries.industry;
+      res.send(industries);
     })
   })
 });
@@ -64,5 +64,18 @@ router.get('/government', function(req, res) {
 });
 
 // Get candidate by id
+router.get('/sector/:cid', (req, res) => {
+  https.get(openSecretsUrl+'&method=candSector&cid='+req.params.cid+'&cycle=2020', (resp) => {
+    let data = '';
+    resp.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    resp.on('end', () => {
+
+      res.send(data);
+    })
+  })
+})
 
 module.exports = router;
